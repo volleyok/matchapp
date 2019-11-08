@@ -1,0 +1,76 @@
+<div class = "signupPage">
+  <header class="header">
+    <div>アカウントを作成</div>
+  </header>
+  <div class="container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        
+        <label for="file_photo" class="rounded-circle userProfileImg">
+          <div class="userProfileImg_description">画像をアップロード</div>
+          <i class="fas fa-camera fa-2x"></i>
+          <%= f.file_field :img_name, id: "file_photo" %>
+        </label>
+        <div class="userImgPreview" id="userImgPreview">
+          <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
+          <p class="userImgPreview_text">画像をアップロード済み</p>
+        </div>
+        
+        <div class="form-group">
+          <label for="name">名前</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Eメールアドレス</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <%= f.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">パスワード</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password, class: "form-control", placeholder:"パスワードを入力してください", autocomplete: "off" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm">確認用パスワード</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <div><label for=''>性別</label></div>
+          <div class="form-check form-check-inline">
+          <span class="input-group-addon"><i class="fas fa-mars fa-lg " aria-hidden="true"></i></span>
+          <span class="input-group-addon"><i class="fas fa-venus fa-lg " aria-hidden="true"></i></span>
+            <%= f.radio_button :sex, "男", class: "form-check-input", id: "inlineRadio1" %>
+            <label class="form-check-label" for="inlineRadio1">男</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :sex, "女", class: "form-check-input", id: "inlineRadio2" %>
+            <label class="form-check-label" for="inlineRadio2">女</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>自己紹介文</label>
+          <%= text_area :user, :self_introduction, maxlength: "1000", rows: "10", class:"form-control" %>
+        </div>
+
+        <div class="text-center">
+          <%= f.submit "はじめる", class: "btn submitBtn" %>
+          <%= render "devise/shared/links" %>
+        </div>
+    <% end %>
+  </div>
+</div>
