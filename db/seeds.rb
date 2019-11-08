@@ -5,3 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+p "create Users"
+User.create!(
+  email: 'user1@example.com',
+  password: 'aaaaaaaa',
+  name: '利樹',
+  self_introduction: '利樹です',
+  sex: 0,
+  img_name: open("#{Rails.root}/db/dummy_img/1.jpg")
+)
+User.create!(
+  email: 'user2@example.com',
+  password: 'aaaaaaaa',
+  name: '亮',
+  self_introduction: '亮です',
+  sex: 0,
+  img_name: open("#{Rails.root}/db/dummy_img/2.jpg")
+)
+User.create!(
+  email: 'user3@example.com',
+  password: 'aaaaaaaa',
+  name: '優子です',
+  self_introduction: '優子です',
+  sex: 1,
+  img_name: open("#{Rails.root}/db/dummy_img/4.jpg")
+)
+User.create!(
+  email: 'user4@example.com',
+  password: 'aaaaaaaa',
+  name: 'あやみです',
+  self_introduction: 'あやみです',
+  sex: 1,
+  img_name: open("#{Rails.root}/db/dummy_img/3.jpg")
+)
